@@ -1,5 +1,5 @@
-#Usa uma imagem base (nesse caso está sendo utilizada uma imagem do Noje.js 20.0.0v)
-FROM node:20
+#Usa uma imagem base (nesse caso está sendo utilizada uma imagem do Noje.js 22.0.0v)
+FROM node:22
 
 #Informa ao docker o diretório onde ele iniciará a execução do container
 WORKDIR /app
