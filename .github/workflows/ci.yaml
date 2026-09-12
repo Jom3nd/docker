@@ -1,0 +1,30 @@
+name: CI
+    
+    on:
+      push:
+        branches:
+            - main
+
+      pull_request:
+        branches:
+            - main
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Baixar o código do repositório
+            uses: actions/checkout@v3
+
+          - name: Docker build
+            run: docker build -t docker_exercicio .
+          
+          - name: Docker run
+            run: docker run -d -p 3000:3000 --name docker_exercicio docker_exercicio
+          
+          - name: Aguardar a aplicação iniciar
+            run: sleep 5
+
+          - name: Testar aplicação com Docker
+            run: curl -f http://localhost:3000
+
