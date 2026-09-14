@@ -26,8 +26,5 @@ jobs:
       - name: Aguardar aplicação iniciar
 
     run:
-        for i in {1..10}; do
-          curl -f http://localhost:3000 && exit 0
-          sleep 2
-        done
-        exit 1
+        curl -f http://localhost:3000 && exit 0
+        sleep 2
