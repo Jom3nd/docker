@@ -23,5 +23,11 @@ jobs:
       - name: Aguardar a aplicação iniciar
         run: sleep 5
 
-      - name: Testar aplicação com Docker
-        run: curl -f http://localhost:3000
+      - name: Aguardar aplicação iniciar
+
+    run:
+        for i in {1..10}; do
+          curl -f http://localhost:3000 && exit 0
+          sleep 2
+        done
+        exit 1
