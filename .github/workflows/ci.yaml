@@ -23,8 +23,5 @@ jobs:
       - name: Aguardar a aplicação iniciar
         run: sleep 5
 
-      - name: Aguardar aplicação iniciar
-
-    run:
-        curl -f http://localhost:3000 && exit 0
-        sleep 2
+      - name: Testar aplicação com Docker
+        run: curl -f http://localhost:3000
